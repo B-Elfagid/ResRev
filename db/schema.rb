@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_133208) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
+    t.string "image"
     t.string "cuisine"
     t.string "city"
     t.string "country"
@@ -31,8 +32,10 @@ ActiveRecord::Schema.define(version: 2021_04_06_133208) do
     t.integer "phone_number"
     t.string "opening_hours"
     t.text "features"
+    t.integer "owner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_restaurants_on_owner_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -40,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_133208) do
     t.datetime "date"
     t.string "category"
     t.text "comment"
+    t.text "image"
     t.integer "user_id", null: false
     t.integer "restaurant_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -56,6 +60,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_133208) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "restaurants", "owners"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
 end
