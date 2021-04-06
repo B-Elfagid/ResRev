@@ -1,11 +1,24 @@
-Restaurant Review App(ResRev)
+              Restaurant Review App(ResRev)
 
-User - username, email, password_digest, provider, uid 
-Restaurant - name, cuisine, city, country, address, wesite, phone_number, opening_hours, features
-Review - rating, date, category(brunch, lunch, afternoon tea, dinner)
-         comment, user_id, restaurant_id
+# User - username, email, password_digest, provider, uid 
+# Restaurant - name, cuisine, city, country, address, wesite, phone_number, opening_hours, features, owner_id 
+# Review - rating, date, category(brunch, lunch, afternoon tea, dinner), comment, user_id, restaurant_id
+# owner - first_name, last_name, email, password_digest 
 
 
-User                                     Restaurant                        Review                     
-has_many reviews                         has_many reviews                  belongs_to user           
-has_many restaurants through reviews     has_many users through reviews    belongs_to restaurant 
+# User                                                                             
+ - has_many reviews                                                  
+ - has_many restaurants through reviews       
+
+# Restaurant 
+ - belongs_to owner 
+ - has_many reviews 
+ - has_many users through reviews
+
+# Review
+ - belongs_to user
+ - belongs_to restaurant
+
+# Owner 
+  - has_many restaurants 
+  - has many reviews through restaurants 

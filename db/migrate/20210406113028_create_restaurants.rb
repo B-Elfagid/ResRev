@@ -5,13 +5,13 @@ class CreateRestaurants < ActiveRecord::Migration[6.1]
       t.string :cuisine
       t.string :city
       t.string :country
-      t.string :adress
-      t.text :website
+      t.string :address
+      t.string :website
       t.integer :phone_number
       t.string :opening_hours
       t.text :features
 
-      t.timestamps
+      t.timestamps 
     end
   end
 end
