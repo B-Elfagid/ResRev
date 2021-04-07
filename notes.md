@@ -1,7 +1,7 @@
               Restaurant Review App(ResRev)
 
 # User - username, email, password_digest
-# Restaurant - image, name, cuisine, city, country, address, wesite, phone_number, opening_hours, features, owner_id 
+# Restaurant - name, image, cuisine, city, country, wesite, owner_id 
 # Review - rating, date, category(brunch, lunch, afternoon tea, dinner), comment, image, user_id, restaurant_id
 # owner - first_name, last_name, email, password_digest 
 

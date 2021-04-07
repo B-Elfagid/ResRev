@@ -27,11 +27,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_133208) do
     t.string "cuisine"
     t.string "city"
     t.string "country"
-    t.string "address"
     t.string "website"
-    t.integer "phone_number"
-    t.string "opening_hours"
-    t.text "features"
     t.integer "owner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
