@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get '/' => 'sessions#welcome'
-  get '/login' => 'sessions#login/new'
-  post '/login' => 'sessions#login/create'
-  get '/signup' => 'sessions#users/new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/signup' => 'users#new'
 
   resources :owners
   resources :restaurants
