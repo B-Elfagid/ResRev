@@ -1,9 +1,12 @@
-<h1>Sign up</h1>
+<h1>Owner Sign up</h1>
 
-<%= form_for (@user) do |f| %>
+<%= form_for (@owner) do |f| %>
 
-    <%= f.label :Username %>
-    <%= f.text_field :username %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
     <br>
     <%= f.label :Email %>
     <%= f.email_field :email %>
@@ -14,5 +17,4 @@
     <%= f.submit "Sign Up" %>
 
 <% end %>
-
 
