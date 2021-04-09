@@ -7,10 +7,10 @@ class SessionsController < ApplicationController
   end 
 
   def create
-    @user = User.find_by(username: params[:user][:username])
-    if @user && @user.authenticate(params[:user][:password])
-      session[:user_id] = @user.id
-    redirect_to user_path(@user)
+    @owner = Owner.find_by(email: params[:owner][:email])
+    if @owner && @owner.authenticate(params[:owner][:password])
+      session[:owner_id] = @owner.id
+    redirect_to owner_path(@owner)
     else
       flash[:error] = "Sorry, login info is incorrect, please try again."
       redirect_to login_path

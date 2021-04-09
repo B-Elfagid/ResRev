@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-    belongs_to :owner 
     has_many :reviews 
+    belongs_to :owner
     has_many :users, through: :reviews
 end

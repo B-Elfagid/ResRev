@@ -1,16 +1,16 @@
 class ApplicationController < ActionController::Base
     
     #gives acess to methods in the views
-    helper_method :current_user, :logged_in?
+    helper_method :current_owner, :logged_in?
 
 
     private 
-    def current_user
-        @current_user ||=User.find_by_id(session[:user_id]) if session[:user_id]
+    def current_owner
+        @current_owner ||=Owner.find_by_id(session[:owner_id]) if session[:owner_id]
     end 
 
     def logged_in?
-        !!session[:user_id]
+        !!session[:owner_id]
     end 
 
     def redirect_if_not_logged_in

@@ -1,4 +1,5 @@
 class OwnersController < ApplicationController
+    
     def new
         @owner = Owner.new
     end 
@@ -7,18 +8,19 @@ class OwnersController < ApplicationController
       @owner = Owner.new(owner_params)
       if @owner.save
         session[:owner_id] = @owner.id
-        redirect_to new_restaurant_path
+        redirect_to owner_path(@owner)
       else 
-        redirect_to '/'
+        render :new
     end 
  end  
 
     def show
+        redirect_if_not_logged_in
         @owner = Owner.find_by(id: params[:id])
         redirect_to '/' if !@owner
     end 
-    
 
+    
 
     private 
 
@@ -26,4 +28,4 @@ class OwnersController < ApplicationController
         params.require(:owner).permit(:first_name, :last_name, :email, :password)
     end 
 
-end
+end 
