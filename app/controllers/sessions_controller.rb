@@ -14,12 +14,13 @@ class SessionsController < ApplicationController
     else
       flash[:error] = "Sorry, login info is incorrect, please try again."
       redirect_to login_path
-   end 
- end 
+  end 
+end
 
   def destroy
-    session.delete(:user_id)
+    session.clear
     redirect_to '/'
   end 
-  
-end
+end 
+
+

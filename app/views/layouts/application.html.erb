@@ -11,9 +11,16 @@
   </head>
 
    <div>
-   <%= link_to "Log Out", logout_path, method: :delete %>
-   <%= link_to "Owner Sign Up", new_restaurant_path %>  >
+   <% if logged_in? %>
+   <%= link_to "Log Out", logout_path, method: :delete %> |
+   <%= link_to "Add a Restaurant", new_restaurant_path %> |
+   <%= link_to "All Restaurants", restaurants_path %>
+
+   <% else %>
+   <%= link_to "User Signup", signup_path %>
+   <%= link_to "User Login", login_path %>
    
+   <% end %>
    </div>
 
   <body>

@@ -9,7 +9,7 @@ class OwnersController < ApplicationController
         session[:owner_id] = @owner.id
         redirect_to new_restaurant_path
       else 
-        redirect_to :'/'
+        redirect_to '/'
     end 
  end  
 
@@ -17,6 +17,7 @@ class OwnersController < ApplicationController
         @owner = Owner.find_by(id: params[:id])
         redirect_to '/' if !@owner
     end 
+    
 
 
     private 
