@@ -13,12 +13,12 @@ class RestaurantsController < ApplicationController
 
     def new
         @restaurant = Restaurant.new
+        @categories = Category.all.map{|c| [c.name, c.id] }
     end  
-
-    
 
     def create
     @restaurant = current_owner.restaurants.build(restaurant_params)
+    @restaurant.category_id = params[:category_id]
     if @restaurant.save
         redirect_to restaurants_path
     else
@@ -38,17 +38,22 @@ def update
 end 
 
 def destroy
-end 
+    @restaurant.destroy
+    redirect_to '/'
+ end 
+
 
 
 
 private
     def restaurant_params 
-        params.require(:restaurant).permit(:name, :image, :cuisine, :city, :country, :website)
+        params.require(:restaurant).permit(:name, :image, :city, :country, :website, :category_id)
     end 
-end
+
 
 
 def find_restaurant
   @restaurant = Restaurant.find_by(id: params[:id])
+end 
+
 end 

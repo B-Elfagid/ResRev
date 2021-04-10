@@ -1,0 +1,30 @@
+<p><%= flash[:error] %></p>
+
+<%= form_for (@restaurant) do |f| %>
+
+    <%= f.label :category %>
+    <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name), include_blank: "Select Category") %><br>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+
+    <%= f.label :Image %>
+    <%= f.text_field :image %>
+    <br>
+
+    <%= f.label :City %>
+    <%= f.text_field :city %>
+    <br>
+
+    <%= f.label :Country %>
+    <%= f.text_field :country %>
+    <br>
+
+    <%= f.label :Website %>
+    <%= f.text_field :website %>
+    <br>
+
+    <%= f.submit "Submit" %>
+
+<% end %>
