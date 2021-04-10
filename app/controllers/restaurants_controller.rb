@@ -5,8 +5,13 @@ class RestaurantsController < ApplicationController
 
 
     def index
-        @restaurants = Restaurant.all
+        if params[:category].blank?
+          @restaurants = Restaurant.all
+        else
+         @category_id = Category.find_by(name: params[:category]).id
+         @restaurants = Restaurant.where(:category_id => @category_id).order("created_at DESC")
     end 
+ end 
 
     def show   
     end 
@@ -27,9 +32,11 @@ class RestaurantsController < ApplicationController
 end 
 
 def edit
+   @categories = Category.all.map{|c| [c.name, c.id] }
 end 
 
 def update
+    @restaurant.category_id = params[:category_id]
     if @restaurant.update(restaurant_params)
      redirect_to restaurant_path(@restaurant)
     else
@@ -53,7 +60,7 @@ private
 
 
 def find_restaurant
-  @restaurant = Restaurant.find_by(id: params[:id])
+    @restaurant = Restaurant.find_by(id: params[:id])
 end 
 
 end 
