@@ -1,10 +1,24 @@
-<h2><%= @restaurant.name %><h2>
-<h3>Cuisine: <%= @restaurant.category.name %></h3>
-<%= @restaurant.image %><br>
-<%= @restaurant.cuisine %><br>
-<%= @restaurant.city %><br>
-<%= @restaurant.country %><br>
-<%= @restaurant.website %><br>
+<div class="row">
+
+  <div class="col-md-4">
+    <%= image_tag @restaurant.image.url, :size => "375x325" %>
+  </div>
+
+  <div class="col-md-8">
+  <h2><%= @restaurant.name %><h2>
+  <h3>Cuisine: <%= @restaurant.category.name %></h3>
+  <%= @restaurant.city %><br>
+  <%= @restaurant.country %><br>
+  <%= @restaurant.website %><br>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+  </div>
+</div>
+
+
 <%= link_to "Back", './' %> |
 
 <% if logged_in? %>

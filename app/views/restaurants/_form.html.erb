@@ -1,5 +1,6 @@
 <p><%= flash[:error] %></p>
 
+
 <%= form_for (@restaurant) do |f| %>
 
     <%= f.label :category %>
@@ -8,11 +9,11 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>
-
-    <%= f.label :Image %>
-    <%= f.text_field :image %>
-    <br>
-
+    
+    <div class="form-group">
+    <%= f.file_field :image %>
+    </div>
+  
     <%= f.label :City %>
     <%= f.text_field :city %>
     <br>
@@ -26,5 +27,8 @@
     <br>
 
     <%= f.submit "Submit" %>
+
+
+   
 
 <% end %>

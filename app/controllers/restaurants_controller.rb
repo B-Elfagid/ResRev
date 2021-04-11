@@ -54,7 +54,7 @@ def destroy
 
 private
     def restaurant_params 
-        params.require(:restaurant).permit(:name, :image, :city, :country, :website, :category_id)
+        params.require(:restaurant).permit(:name, :image, :city, :country, :website, :category_id, :image)
     end 
 
 

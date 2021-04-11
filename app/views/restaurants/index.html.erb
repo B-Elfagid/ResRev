@@ -1,6 +1,19 @@
-<h1>All Restaurants</h1>
+<h3>All Restaurants</h3>
 
-<% @restaurants.each do |restaurant| %>
-   <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+<% if @restaurants.count == 0 %>
+ <h4>The Restaurant you want to review is not in the category:- </h4>
+      <h4>please <%= link_to "Add a Restaurant", new_restaurant_path %> and review </h4>
+<% else %>
+
+<div class="row">
+
+  <% @restaurants.each do |restaurant| %>
+   
+    <div class="col-md-3">
+      <%= link_to image_tag(restaurant.image.url, :size => "250x250"), restaurant_path(restaurant) %> 
+    </div>
+
+   <% end %>
+
+  </div>
 <% end %>
-
