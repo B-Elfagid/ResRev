@@ -21,8 +21,9 @@ class RestaurantsController < ApplicationController
         @categories = Category.all.map{|c| [c.name, c.id] }
     end  
 
-    def create
-    @restaurant = current_owner.restaurants.build(restaurant_params)
+
+    def create    
+    @restaurant = current_user.restaurants.build(restaurant_params)
     @restaurant.category_id = params[:category_id]
     if @restaurant.save
         redirect_to restaurants_path
@@ -30,6 +31,7 @@ class RestaurantsController < ApplicationController
         render :new
     end 
 end 
+
 
 def edit
    @categories = Category.all.map{|c| [c.name, c.id] }
@@ -50,11 +52,11 @@ def destroy
  end 
 
 
-
+ 
 
 private
     def restaurant_params 
-        params.require(:restaurant).permit(:name, :image, :city, :country, :website, :category_id, :image)
+        params.require(:restaurant).permit(:name, :image, :city, :country, :website, :category_id)
     end 
 
 

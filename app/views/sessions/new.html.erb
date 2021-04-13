@@ -1,8 +1,8 @@
-<h1>Owner Login</h1>
+<h1>Login</h1>
 
 <p><%= flash[:error] %></p>
 
-<%= form_for (:owner) do |f| %>
+<%= form_for (:user) do |f| %>
 
     <%= f.label :Email %>
     <%= f.email_field :email %>

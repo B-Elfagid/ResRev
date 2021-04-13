@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   get '/' => 'sessions#welcome'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/signup' => 'owners#new'
+  get '/signup' => 'users#new'
   delete '/logout' => 'sessions#destroy'
 
   
 
-  resources :owners
+ 
   resources :restaurants do
      resources :reviews
   end 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_214428) do
+ActiveRecord::Schema.define(version: 2021_04_09_213944) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -18,27 +18,18 @@ ActiveRecord::Schema.define(version: 2021_04_09_214428) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "owners", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "image"
-    t.string "cuisine"
     t.string "city"
     t.string "country"
     t.string "website"
-    t.integer "owner_id", null: false
+    t.integer "user_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id"
-    t.index ["owner_id"], name: "index_restaurants_on_owner_id"
+    t.index ["category_id"], name: "index_restaurants_on_category_id"
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -63,7 +54,8 @@ ActiveRecord::Schema.define(version: 2021_04_09_214428) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "restaurants", "owners"
+  add_foreign_key "restaurants", "categories"
+  add_foreign_key "restaurants", "users"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "reviews", "users"
 end

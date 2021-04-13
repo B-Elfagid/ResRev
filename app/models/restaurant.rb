@@ -1,8 +1,8 @@
 class Restaurant < ApplicationRecord
-    has_many :reviews 
+    belongs_to :user
     belongs_to :category
-    belongs_to :owner
-    has_many :users, through: :reviews 
+    has_many :reviews
 
     mount_uploader :image, ImageUploader
 end
+

@@ -1,0 +1,13 @@
+Welcome <%= @user.username %> <br><br>
+
+</h3>here are the restaurant/s you recently added. <br><h3>
+
+   <% @user.restaurants.each do |r| %>
+    
+  
+    <div class="col-md-4">
+    <%= link_to image_tag(r.image.url, :size => "375x325"), restaurant_review_path(r) %>
+  </div>
+ 
+  <% end %>
+    
