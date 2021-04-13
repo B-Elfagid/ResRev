@@ -1,0 +1,7 @@
+<p>Rating: <%= review.rating %></p>
+<p>Review_date:<%= review.date %></p>
+<p>Comment: <%= review.comment %></p>
+<p>Image: <%= review.image %></p>
+
+<%= link_to "Edit", edit_restaurant_review_path(review.restaurant, review) %>
+<%= link_to "Delete", restaurant_review_path(review.restaurant, review), method: :delete, data: {confirm: "are you sure?"} %>

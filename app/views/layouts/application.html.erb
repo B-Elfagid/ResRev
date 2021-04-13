@@ -33,6 +33,7 @@
 
        <% if logged_in? %>
        <li><%= link_to "Add a Restaurant", new_restaurant_path %></li>
+       <li><%= link_to "Your Added Restaurant", users_path %></li>
        <li><%= link_to "Log Out", logout_path, method: :delete %></li>
        <% else %>
        <li><%= link_to "Signup", signup_path %></li>

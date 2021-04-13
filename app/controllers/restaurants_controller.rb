@@ -13,7 +13,8 @@ class RestaurantsController < ApplicationController
     end 
  end 
 
-    def show   
+    def show  
+        
     end 
 
     def new
