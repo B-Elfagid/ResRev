@@ -10,14 +10,14 @@ class ReviewsController < ApplicationController
     def index
     end 
 
-    def create
-      @review = Review.new(review_params)
-      @review.restaurant_id = @restaurant.id
-      @review.user_id = current_user
-     if @review.save
-        redirect_to restaurant_path(@restaurant)
-      else
-        render :new
+  def create
+    @review = Review.new(review_params)
+    @review.restaurant = @restaurant
+    current_user.reviews << @review
+    if @review.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new
     end 
   end 
 
