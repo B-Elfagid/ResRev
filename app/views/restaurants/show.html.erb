@@ -1,5 +1,9 @@
+<h1>Restaurant added by:- <%= @restaurant.user.username %></h1>
+
+
 <div class="row">
 
+ <% if @restaurant.try(:image).try(:url)%>
   <div class="col-md-4">
     <%= image_tag @restaurant.image.url, :size => "375x325" %>
   </div>
@@ -21,6 +25,9 @@
   <div>
   <%= link_to "Add Review", new_restaurant_review_path(@restaurant) %>
   </div>
+  <div>
+  <%= link_to "See All Reviews", restaurant_reviews_path(@restaurant) %>
+  </div>
   </div>
 </div>
 
@@ -31,5 +38,6 @@
 <% if @restaurant.user_id == current_user.id %>
 <%= link_to "Edit", edit_restaurant_path(@restaurant) %> |
 <%= link_to "Delete", restaurant_path(@restaurant), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
 <% end %>
 <% end %>

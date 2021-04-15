@@ -8,7 +8,12 @@ class ReviewsController < ApplicationController
     end 
     
     def index
+      if params[:restaurant_id] && @restaurant = Restaurant.find_by_id(params[:restaurant_id])
+        @reviews = @restaurant.reviews
+    else
+      @reviews = Review.all
     end 
+  end 
 
   def create
     @review = Review.new(review_params)

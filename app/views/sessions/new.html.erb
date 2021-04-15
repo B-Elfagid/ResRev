@@ -1,6 +1,6 @@
 <h1>Login</h1>
 
-<p><%= flash[:error] %></p>
+<p><%= flash[:error] if flash[:error] %></p>
 
 <%= form_for (:user) do |f| %>
 
