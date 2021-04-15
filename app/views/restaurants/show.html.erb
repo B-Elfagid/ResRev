@@ -1,4 +1,4 @@
-<h1>Restaurant added by:- <%= @restaurant.user.username %></h1>
+<h4>Restaurant added by:- <%= @restaurant.user.username %></h4>
 
 
 <div class="row">
@@ -12,26 +12,16 @@
   <h2><%= @restaurant.name %><h2>
       <h4>Average Rating:- <%= average_review %></h4>
 
-  <%= @restaurant.city %><br>
-  <%= @restaurant.country %><br>
-  <%= link_to @restaurant.website %><br>
-
-</div>
-</div>
-
-<div class="row">
-  <div class="col-md-4">
+   <%= @restaurant.city %><br>
+   <%= @restaurant.country %><br>
+   <%= link_to @restaurant.website %><br>
+   <%= link_to "Add Review", new_restaurant_review_path(@restaurant) %><br>
+   <%= link_to "See All Reviews", restaurant_reviews_path(@restaurant) %>
   
-  <!-- where the reviews rating will go -->
-   <%= render @restaurant.reviews %>
-  <div>
-  <%= link_to "Add Review", new_restaurant_review_path(@restaurant) %>
-  </div>
-  <div>
-  <%= link_to "See All Reviews", restaurant_reviews_path(@restaurant) %>
-  </div>
-  </div>
+
 </div>
+</div>
+
 
 
 <%= link_to "Back", './' %> |
