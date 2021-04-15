@@ -13,3 +13,7 @@ def average_review
         @average_review = @restaurant.reviews.average(:rating).round(2)
        end 
 end 
+
+def number_of_reviews
+    @number_of_reviews = @restaurant.reviews.count 
+end 
