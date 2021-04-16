@@ -13,6 +13,11 @@ class RestaurantsController < ApplicationController
     end 
  end 
 
+ def search
+    @restaurants = Restaurant.where("name LIKE ?", "%" + params[:q] + "%")  
+    render :index
+ end 
+
     def show  
       
     end 

@@ -10,7 +10,7 @@ def average_review
     if @restaurant.reviews.blank?
         @average_review = 0
        else
-        @average_review = @restaurant.reviews.average(:rating).round(2)
+        @average_review = @restaurant.reviews.average(:rating).round(1)
        end 
 end 
 
