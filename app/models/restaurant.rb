@@ -1,7 +1,8 @@
 class Restaurant < ApplicationRecord
     belongs_to :user
     belongs_to :category
-    has_many :reviews
+    has_many :reviews, :dependent => :destroy
+    
 
     mount_uploader :image, ImageUploader
 end

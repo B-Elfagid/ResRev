@@ -4,8 +4,8 @@ class ReviewsController < ApplicationController
    before_action :find_review, only: [:edit, :update, :destroy]
    
     def new
-        @review = Review.new
-    end 
+     @review = Review.new
+    end
     
     def index
       if params[:restaurant_id] && @restaurant = Restaurant.find_by_id(params[:restaurant_id])
