@@ -1,5 +1,7 @@
 Welcome <%= @user.username %> <br><br>
 
+<% if @user.restaurants.present? %>
+
 </h3>here are the restaurant/s you recently added. <br><h3>
 
    <% @user.restaurants.each do |r| %>
@@ -7,7 +9,9 @@ Welcome <%= @user.username %> <br><br>
     <div class="col-md-4">
     <%= link_to image_tag(r.image.url, :size => "375x325"), restaurant_path(r) %>
   </div>
- 
+  
   <% end %>
   <% end %>
+  <% end %>
+  
     
