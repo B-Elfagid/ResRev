@@ -29,6 +29,7 @@ gem 'carrierwave', '~> 2.0'
 gem 'omniauth'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
