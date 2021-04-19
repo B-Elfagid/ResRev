@@ -3,7 +3,11 @@ class Restaurant < ApplicationRecord
     belongs_to :category
     has_many :reviews, :dependent => :destroy
     
-    
+    validates :name, presence: true, uniqueness: true
+    validates :image, presence: true
+    validates :city, presence: true
+    validates :country, presence: true
+    validates :website, presence: true
 
 
     mount_uploader :image, ImageUploader
