@@ -1,4 +1,9 @@
-
+<body>
+<% if flash[:error] %>
+<div class="errors flash fatal">
+   <h3 class="error"><%= flash[:error] %>
+   </div>
+   <% end %>
 
 <h3>All Restaurants</h3>
 
@@ -8,16 +13,16 @@
 <% else %>
 
 <div class="row">
-
   <% @restaurants.each do |restaurant| %>
-     
+
     <% if restaurant.try(:image).try(:url)%>
     <div class="col-md-3">
       <%= restaurant.name %><br>
       <%= link_to image_tag(restaurant.image.url, :size => "250x250"), restaurant_path(restaurant) %> 
     </div>
-    <% end %>
-   <% end %>
+  <% end %>
+<% end %>
 
   </div>
 <% end %>
+</body>

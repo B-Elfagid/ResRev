@@ -1,3 +1,9 @@
+<% if flash[:error] %>
+<div class="errors flash fatal">
+   <h3 class="error"><%= flash[:error] %>
+   </div>
+   <% end %>
+
 Welcome <%= @user.username %> <br><br>
 
 <% if @user.restaurants.present? %>

@@ -4,5 +4,6 @@
 <p>Image: <%= review.image.url %> </p>
 
 
+
 <%= link_to "Edit", edit_restaurant_review_path(review.restaurant, review) %>
 <%= link_to "Delete", restaurant_review_path(review.restaurant, review), method: :delete, data: {confirm: "are you sure?"} %>

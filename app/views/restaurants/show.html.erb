@@ -1,3 +1,10 @@
+<body>
+<% if flash[:error] %>
+<div class="errors flash fatal">
+   <h3 class="error"><%= flash[:error] %>
+   </div>
+   <% end %>
+
 <h4>Restaurant added by:- <%= @restaurant.user.username %></h4>
 
 
@@ -32,3 +39,4 @@
 <% end %>
 <% end %>
 <% end %>
+</body>

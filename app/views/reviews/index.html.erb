@@ -1,3 +1,10 @@
+<body>
+<% if flash[:error] %>
+<div class="errors flash fatal">
+   <h3 class="error"><%= flash[:error] %>
+   </div>
+   <% end %>
+
 <h1>All Reviews</h1>
 <h2><%= @restaurant.name %></h2>
 <% @restaurant.reviews.each do |review| %>
@@ -7,4 +14,4 @@
 <br>
         <%= link_to "Back", restaurant_path(@restaurant) %> |
 
-     
+     </body>
