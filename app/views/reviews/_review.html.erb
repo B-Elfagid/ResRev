@@ -1,9 +1,15 @@
 <p>Rating: <%= review.rating %></p>
 <p>Review_date:<%= review.date %></p>
+<p>Meal: <%= review.category %></p>
 <p>Comment: <%= review.comment %></p>
-<p>Image: <img src="<%= review.image.url %>" width=150px height=100px > </p>
+<p>Image: <br>
+    <img src="<%= review.image.url %>" width=150px height=100px > </p>
 
-
-
+    
+    
+<% if logged_in? %>
+<% if review.user_id == current_user.id %>
 <%= link_to "Edit", edit_restaurant_review_path(review.restaurant, review) %>
 <%= link_to "Delete", restaurant_review_path(review.restaurant, review), method: :delete, data: {confirm: "are you sure?"} %>
+<% end %>
+<% end %>
