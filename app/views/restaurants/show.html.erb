@@ -21,7 +21,7 @@
 
    <%= @restaurant.city %><br>
    <%= @restaurant.country %><br>
-   <%= link_to @restaurant.website %><br>
+   <%= link_to @restaurant.website, "http://#{@restaurant.website}", target: "_blank" %><br>
    <h4><%= number_of_reviews %> Reviews | <%= link_to "See All Reviews", restaurant_reviews_path(@restaurant) %> </h4>
    <h4><%= link_to "Add a New Review", new_restaurant_review_path(@restaurant) %></h4>
 
