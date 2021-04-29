@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
           @restaurants = Restaurant.all
         else
          @category_id = Category.find_by(name: params[:category]).id
-         @restaurants = Restaurant.where(:category_id => @category_id).order("created_at DESC")
+         @restaurants = Restaurant.category
     end 
  end 
 

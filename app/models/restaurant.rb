@@ -12,16 +12,27 @@ class Restaurant < ApplicationRecord
 
 
     mount_uploader :image, ImageUploader
+
+    def self.category
+        c = where(:category_id => @category_id).order("created_at DESC")
+        byebug
+    end 
+
+    def average_review
+        if self.reviews.blank?
+            @average_review = 0
+           else
+            @average_review = self.reviews.average(:rating).round(1)
+           end 
+    end 
+    
+    def number_of_reviews
+        @number_of_reviews = self.reviews.count 
+    end 
+
 end
 
-def average_review
-    if @restaurant.reviews.blank?
-        @average_review = 0
-       else
-        @average_review = @restaurant.reviews.average(:rating).round(1)
-       end 
-end 
 
-def number_of_reviews
-    @number_of_reviews = @restaurant.reviews.count 
-end 
+
+
+
