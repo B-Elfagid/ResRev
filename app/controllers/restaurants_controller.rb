@@ -29,8 +29,9 @@ class RestaurantsController < ApplicationController
 
 
     def create    
-    @restaurant = current_user.restaurants.build(restaurant_params)
-    @restaurant.category_id = params[:category_id]
+      @restaurant = current_user.restaurants.build(restaurant_params)
+      @restaurant.user = current_user
+      @restaurant.category_id = params[:category_id]
     if @restaurant.save
         redirect_to restaurants_path
     else
@@ -62,6 +63,7 @@ def destroy
 
 private
     def restaurant_params 
+       
         params.require(:restaurant).permit(:name, :image, :city, :country, :website, :category_id)
     end 
 

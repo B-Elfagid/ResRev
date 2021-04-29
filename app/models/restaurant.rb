@@ -1,11 +1,11 @@
 class Restaurant < ApplicationRecord
-    belongs_to :category
+    belongs_to :category #, optional: true
     belongs_to :user 
     has_many :reviews, :dependent => :destroy
     has_many :users, through: :reviews
     
-    validates :name, presence: true, uniqueness: true
-    # validates :image, presence: true
+   
+    validates :image, presence: true
     validates :city, presence: true
     validates :country, presence: true
     validates :website, presence: true

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     
-    #gives acess to methods in the views
+   
     helper_method :current_user, :logged_in?
 
 
