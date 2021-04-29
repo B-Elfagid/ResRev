@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'sessions#welcome'
-  get 'auth/:provider/callback', to: 'sessions#omniauth' 
+  get 'auth/:provider/callback' => 'sessions#omniauth' 
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'

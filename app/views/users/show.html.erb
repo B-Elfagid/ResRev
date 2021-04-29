@@ -13,7 +13,8 @@ Welcome <%= @user.username %> <br><br>
    <% @user.restaurants.each do |r| %>
     <% if r.try(:image).try(:url)%>
     <div class="col-md-4">
-    <%= link_to image_tag(r.image.url, :size => "375x325"), restaurant_path(r) %>
+    <br>
+    <%= link_to image_tag(r.image.url, :size => "350x300"), restaurant_path(r) %>
   </div>
   
   <% end %>

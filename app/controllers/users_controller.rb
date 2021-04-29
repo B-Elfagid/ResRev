@@ -24,7 +24,6 @@ def show
 end 
 
 
-
 private 
 
 def user_params
