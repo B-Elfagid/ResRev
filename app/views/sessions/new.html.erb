@@ -1,14 +1,9 @@
-<% if flash[:error] %>
-<div class="errors flash fatal">
-   <h3 class="error"><%= flash[:error] %>
-   </div>
-   <% end %>
 
+<% if flash[:error] %>
+<div class="field_with_errors"><%= flash[:error] %></div>
+<% end %>
 
 <h1>Login</h1>
-
-<p><%= flash[:error] if flash[:error] %></p>
-
 <%= form_for (:user) do |f| %>
 
     <%= f.label :Email %>

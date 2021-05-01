@@ -1,22 +1,25 @@
-<% if flash[:error] %>
-<div class="errors flash fatal">
-   <h3 class="error"><%= flash[:error] %>
+
+<% if @user.errors.any? %>
+<% @user.errors.full_messages.each do |message|%>
+    <div class="field_with_errors">
+     <h3><%= message %> </h3>
    </div>
-   <% end %>
+<%end%>
+<%end%>
 
 <h1>Sign up</h1>
 
 <%= form_for (@user) do |f| %>
 
     <%= f.label :username %>
-    <%= f.text_field :username, required:true %>
+    <%= f.text_field :username %>
     <br>
    
     <%= f.label :Email %>
-    <%= f.email_field :email, required:true %>
+    <%= f.email_field :email %>
     <br>
     <%= f.label :Password %>
-    <%= f.password_field :password, required:true %>
+    <%= f.password_field :password %>
     <br>
     <%= f.submit "Sign Up" %>
 
