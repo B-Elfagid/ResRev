@@ -15,7 +15,6 @@ class Restaurant < ApplicationRecord
 
     def self.category
         c = where(:category_id => @category_id).order("created_at DESC")
-        byebug
     end 
 
     def average_review
